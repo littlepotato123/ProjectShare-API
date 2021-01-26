@@ -1,4 +1,4 @@
-import { Mutation, Resolver } from "type-graphql";
+import { Mutation, Query, Resolver } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { Category } from "../../entity/Category";
 import { Comment } from "../../entity/Comment";
@@ -17,4 +17,9 @@ export class TestingResolver extends BaseEntity {
         Request.delete({});
         return true;
     }
+
+    @Query(() => String)
+    hello() {
+        return "Hi";
+    };
 }
