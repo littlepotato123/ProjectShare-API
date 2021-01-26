@@ -37,10 +37,6 @@ let TestingResolver = class TestingResolver extends typeorm_1.BaseEntity {
             return true;
         });
     }
-    hello() {
-        return "Hi";
-    }
-    ;
 };
 __decorate([
     type_graphql_1.Mutation(() => Boolean),
@@ -48,12 +44,6 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], TestingResolver.prototype, "clear", null);
-__decorate([
-    type_graphql_1.Query(() => String),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TestingResolver.prototype, "hello", null);
 TestingResolver = __decorate([
     type_graphql_1.Resolver()
 ], TestingResolver);
