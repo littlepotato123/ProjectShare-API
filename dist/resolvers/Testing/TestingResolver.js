@@ -21,14 +21,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TestingResolver = void 0;
 const type_graphql_1 = require("type-graphql");
 const typeorm_1 = require("typeorm");
+const Category_1 = require("../../entity/Category");
+const Comment_1 = require("../../entity/Comment");
+const Post_1 = require("../../entity/Post");
+const Request_1 = require("../../entity/Request");
 const User_1 = require("../../entity/User");
 let TestingResolver = class TestingResolver extends typeorm_1.BaseEntity {
     clear() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield User_1.User.clear();
+            Category_1.Category.delete({});
+            Comment_1.Comment.delete({});
+            User_1.User.delete({});
+            Post_1.Post.delete({});
+            Request_1.Request.delete({});
             return true;
         });
     }
+    hello() {
+        return "Hi";
+    }
+    ;
 };
 __decorate([
     type_graphql_1.Mutation(() => Boolean),
@@ -36,6 +48,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], TestingResolver.prototype, "clear", null);
+__decorate([
+    type_graphql_1.Query(() => String),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TestingResolver.prototype, "hello", null);
 TestingResolver = __decorate([
     type_graphql_1.Resolver()
 ], TestingResolver);
